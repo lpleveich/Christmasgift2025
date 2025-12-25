@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>529 Investment Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+    <!-- Splash Page -->
+    <div id="christmas-card" class="splash-page">
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❅</div>
+            <div class="snowflake">❆</div>
+        </div>
+        <div class="splash-content">
+            <!-- Main title -->
+            <div class="splash-header">
+                <h1 class="splash-title">
+                    Merry Christmas nephews of mine.
+                </h1>
+                <p class="splash-subtitle">
+                    There's a big decision to make on whether you want a dollar or a dime. Think carefully, but quickly. Time is running out. You could have $50 now or two hundred in your 529 account. You have till tomorrow to test the math. Click into your profile to choose your path.
+                </p>
+            </div>
+            
+            <!-- Profile selection -->
+            <div class="profile-selection-modern">
+                <p class="selection-label">Select your profile</p>
+                <div class="profile-buttons">
+                    <button class="profile-button grayson-btn" data-profile="Grayson" data-color="purple">
+                        <span class="profile-name">Grayson</span>
+                    </button>
+                    <button class="profile-button landon-btn" data-profile="Landon" data-color="blue">
+                        <span class="profile-name">Landon</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Calculator Container (hidden initially) -->
+    <div id="calculator-container" class="container hidden">
+        <header class="calculator-header">
+            <h1 id="profile-greeting">Merry Christmas!</h1>
+            <p class="subtitle">Text me your answer by Christmas night. The elves will help me get your money right.</p>
+            <p class="helper-text">Before we begin, there's something to know. Compound interest is the thing that helps your money grow. When your money earns money, and then that new money earns money too, you'll have many great Christmases for years to come too!</p>
+        </header>
+
+        <div class="calculator-section">
+            <div class="calculator-layout">
+                <div class="input-card">
+                    <h2>Investment Calculator</h2>
+                    <div class="input-group">
+                        <label for="current-balance">Current Balance:</label>
+                        <div class="input-wrapper">
+                            <span class="currency">$</span>
+                            <input type="text" id="current-balance" value="1,523" inputmode="numeric" pattern="[0-9,]*">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="christmas-gift-toggle">Christmas Gift:</label>
+                        <div class="toggle-wrapper">
+                            <span class="toggle-label">$50 now</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="christmas-gift-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="toggle-label">$200 invested</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="monthly-contribution">Monthly Contribution (optional):</label>
+                        <div class="input-wrapper">
+                            <span class="currency">$</span>
+                            <input type="number" id="monthly-contribution" value="0" min="0" step="10">
+                        </div>
+                        <small>Add money each month to see even bigger growth!</small>
+                    </div>
+                    <div class="info-note">
+                        <small>Assumed annual interest rate: 7% (typical for 529 accounts)</small>
+                    </div>
+                    <div class="calculate-btn-wrapper">
+                        <button class="calculate-btn" onclick="calculateResults()">Calculate</button>
+                    </div>
+                </div>
+
+                <div class="results-section">
+                    <div class="results-card">
+                        <h3>When You're 18 (College)</h3>
+                        <div class="result-box" id="result-18">
+                            <div class="amount">$0</div>
+                            <div class="growth">Growth: $0</div>
+                            <div class="gift-difference" id="gift-diff-18" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="results-card">
+                        <h3>When You're 22 (Graduation)</h3>
+                        <div class="result-box" id="result-22">
+                            <div class="amount">$0</div>
+                            <div class="growth">Growth: $0</div>
+                            <div class="gift-difference" id="gift-diff-22" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="results-card">
+                        <h3>When You're 65 (Retirement)</h3>
+                        <div class="result-box" id="result-65">
+                            <div class="amount">$0</div>
+                            <div class="growth">Growth: $0</div>
+                            <div class="gift-difference" id="gift-diff-65" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2>The Big Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card spending">
+                    <h3>Spending $50 Now</h3>
+                    <div class="spending-examples">
+                        <ul>
+                            <li>Video game or app purchase</li>
+                            <li>Movie tickets for friends</li>
+                            <li>New headphones or accessories</li>
+                        </ul>
+                        <div class="final-amount">
+                            <strong>You'd have: $50 now, $0 later</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-card investing">
+                    <h3>Investing $2,023</h3>
+                    <div class="investing-results">
+                        <div class="age-result">
+                            <span class="age-label">At 18:</span>
+                            <span class="age-amount" id="compare-18">$0</span>
+                        </div>
+                        <div class="age-result">
+                            <span class="age-label">At 22:</span>
+                            <span class="age-amount" id="compare-22">$0</span>
+                        </div>
+                        <div class="age-result">
+                            <span class="age-label">At 65:</span>
+                            <span class="age-amount" id="compare-65">$0</span>
+                        </div>
+                        <div class="difference">
+                            <strong>That's <span id="difference-amount">$0</span> more than spending $50!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="visualization-section">
+            <h2>Watch Your Money Grow</h2>
+            <div class="chart-container">
+                <canvas id="growth-chart"></canvas>
+                <div id="chart-tooltip" class="chart-tooltip"></div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h2>Pro Tips for Smart Investing</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">⏰</div>
+                    <h3>Start Early</h3>
+                    <p>The earlier you start, the more time your money has to grow</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">➕</div>
+                    <h3>Add Regularly</h3>
+                    <p>Even small monthly contributions add up over time</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎯</div>
+                    <h3>Stay Focused</h3>
+                    <p>Don't withdraw early - let compound interest do its work</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📚</div>
+                    <h3>Learn More</h3>
+                    <p>Understanding money now helps you make smart choices forever</p>
+                    <a href="https://medium.com/@socialmediageek/the-quarter-million-dollar-decision-how-a-teenagers-30-monthly-investment-could-have-grown-689f44846f4a" target="_blank" rel="noopener noreferrer" class="learn-more-link">Read: The Quarter Million Dollar Decision</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
+
